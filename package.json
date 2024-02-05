@@ -1,0 +1,78 @@
+{
+  "author": "TJ Horner @tjhorner",
+  "bin": {
+    "sugarpull": "./bin/run.js"
+  },
+  "dependencies": {
+    "@oclif/core": "^3",
+    "@oclif/plugin-help": "^6",
+    "@oclif/plugin-plugins": "^4",
+    "axios": "^1.6.7",
+    "luxon": "^3.4.4"
+  },
+  "description": "Download reports and data from Dexcom Clarity",
+  "devDependencies": {
+    "@oclif/prettier-config": "^0.2.1",
+    "@oclif/test": "^3",
+    "@types/chai": "^4",
+    "@types/luxon": "^3.4.2",
+    "@types/mocha": "^10",
+    "@types/node": "^18",
+    "@types/tough-cookie": "^4.0.5",
+    "chai": "^4",
+    "eslint": "^8",
+    "eslint-config-oclif": "^5",
+    "eslint-config-oclif-typescript": "^3",
+    "eslint-config-prettier": "^9.1.0",
+    "mocha": "^10",
+    "oclif": "^4.4.2",
+    "shx": "^0.3.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "/bin",
+    "/dist",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/tjhorner/sugarpull",
+  "license": "MIT",
+  "main": "",
+  "name": "sugarpull",
+  "oclif": {
+    "bin": "sugarpull",
+    "dirname": "sugarpull",
+    "commands": "./dist/commands",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-plugins"
+    ],
+    "topicSeparator": " ",
+    "topics": {
+      "download": {
+        "description": "Download reports and data from Dexcom Clarity"
+      }
+    }
+  },
+  "repository": "tjhorner/sugarpull",
+  "scripts": {
+    "build": "shx rm -rf dist && tsc -b",
+    "lint": "eslint . --ext .ts",
+    "postpack": "shx rm -f oclif.manifest.json",
+    "posttest": "npm run lint",
+    "prepack": "npm run build && oclif manifest && oclif readme",
+    "prepare": "npm run build",
+    "version": "oclif readme && git add README.md"
+  },
+  "version": "0.0.1",
+  "bugs": "https://github.com/tjhorner/sugarpull/issues",
+  "keywords": [
+    "oclif"
+  ],
+  "types": "dist/index.d.ts",
+  "exports": "./lib/index.js",
+  "type": "module"
+}
