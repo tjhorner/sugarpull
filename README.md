@@ -66,6 +66,20 @@ The most useful way to use sugarpull is for archiving your data on a schedule. Y
 
 If you are using cron and want to set up monitoring for the job, you can use a service like [Cronitor](https://cronitor.io/) to keep tabs on it. This way you will be notified if the job fails or the share code expires.
 
+### Back Up Archives to Other Destinations
+
+To ensure your data archives are safe, it is a good idea to back them up to another location. Performing these backups is outside the scope of sugarpull, but using a tool like [rclone](https://rclone.org/), you can easily sync your archives to basically [any kind of cloud storage provider](https://rclone.org/overview/) &mdash; and [with strong encryption](https://rclone.org/crypt/), if you desire.
+
+For example, say you have a remote called `gdrive` set up with rclone. You can write a shell script to first archive your data with sugarpull, and then sync it to your Google Drive:
+
+```shell
+#!/bin/bash
+sugarpull download /data/save/directory -s ABCDEFHIJ --csv --report all --period month
+rclone sync /data/save/directory gdrive:/clarity-archive
+```
+
+Then you can use cron to run this script on a schedule, as described above.
+
 ## Full Command Reference
 
 <!-- commands -->
