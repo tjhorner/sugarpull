@@ -7,7 +7,7 @@
     "@oclif/core": "^3",
     "@oclif/plugin-help": "^6",
     "@oclif/plugin-plugins": "^4",
-    "axios": "^1.6.7",
+    "axios": "^1.6.8",
     "luxon": "^3.4.4"
   },
   "description": "Download reports and data from Dexcom Clarity",
